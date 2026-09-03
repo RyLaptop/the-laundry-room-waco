@@ -22,6 +22,7 @@ body {
   font-family: var(--body);
   font-size: 1.05rem;
   line-height: 1.55;
+  overflow-x: hidden;
 }
 
 img { max-width: 100%; }
@@ -253,6 +254,10 @@ footer {
   .lede { margin-inline: auto; }
   .service-grid, .location-grid { grid-template-columns: 1fr; }
   .dial-lg { margin-top: 1rem; }
+  /* spoke labels are decorative (aria-hidden) and duplicated as real text below;
+     their fixed-radius positioning overflows narrow viewports, so drop them here
+     rather than the dial graphic itself */
+  .spoke { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
