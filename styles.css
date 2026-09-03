@@ -1,0 +1,260 @@
+:root {
+  --linen: #F6F1E7;
+  --card: #FBF8F2;
+  --denim: #26313F;
+  --suds: #6C93B0;
+  --sun: #E7A93E;
+  --detergent: #C1503E;
+
+  --display: "Oswald", sans-serif;
+  --body: "Karla", sans-serif;
+  --mono: "IBM Plex Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: light; }
+
+body {
+  margin: 0;
+  background: var(--linen);
+  color: var(--denim);
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+img { max-width: 100%; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--detergent);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem;
+}
+
+h1, h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--suds);
+  margin: 0 0 0.6rem;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  background: var(--denim);
+  color: var(--linen);
+}
+
+.hero .wrap { padding-top: 5.5rem; padding-bottom: 5.5rem; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  color: var(--linen);
+}
+
+.hero .eyebrow { color: var(--sun); }
+
+.lede {
+  max-width: 32rem;
+  font-size: 1.15rem;
+  color: #DCE3E9;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.85rem 1.6rem;
+  background: var(--sun);
+  color: var(--denim);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.btn:hover { background: #F0C065; }
+
+/* ---------- Dial (signature element) ---------- */
+
+.dial {
+  position: relative;
+  border-radius: 50%;
+  background: var(--linen);
+  border: 6px solid var(--suds);
+}
+
+.dial-lg { width: 220px; height: 220px; margin: 0 auto; }
+.dial-md { width: 180px; height: 180px; margin: 0 auto 3rem; background: var(--card); }
+
+.dial-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.dial-needle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 34%;
+  background: var(--detergent);
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) rotate(var(--needle));
+  border-radius: 2px;
+}
+
+.dial-needle::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--denim);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.spoke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: rotate(var(--a));
+}
+
+.spoke span {
+  position: absolute;
+  left: var(--r);
+  top: -0.6em;
+  display: inline-block;
+  transform: rotate(calc(-1 * var(--a)));
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--denim);
+  white-space: nowrap;
+}
+
+/* ---------- Story ---------- */
+
+.story { max-width: 44rem; }
+.story h2 { font-size: 1.8rem; }
+.story p:last-child { font-size: 1.1rem; }
+
+/* ---------- Services ---------- */
+
+.services { text-align: center; }
+.services h2 { font-size: 1.8rem; margin-bottom: 2.5rem; }
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.service-card {
+  background: var(--card);
+  border-top: 3px solid var(--sun);
+  padding: 1.5rem;
+}
+
+.service-label {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+}
+
+.service-card p:last-child { margin: 0; }
+
+/* ---------- Locations ---------- */
+
+.locations { text-align: center; }
+.locations h2 { font-size: 1.8rem; margin-bottom: 2.5rem; }
+
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.location-card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.location-card-primary {
+  background: var(--suds);
+  color: var(--linen);
+}
+
+.location-name {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+}
+
+.location-card p:last-child { margin: 0; }
+
+/* ---------- Footer ---------- */
+
+footer {
+  border-top: 1px solid #E0D8C8;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--detergent);
+  text-decoration: underline;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 56rem) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .lede { margin-inline: auto; }
+  .service-grid, .location-grid { grid-template-columns: 1fr; }
+  .dial-lg { margin-top: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
